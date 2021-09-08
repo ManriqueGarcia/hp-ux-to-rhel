@@ -84,4 +84,9 @@ if [ "${m_user}" == "1" ]
     migrate_user "$@"
 fi
 
+if [ "${m_group}" == "1" ]
+  then 
+    migrate_group "$@"
+fi
+
 
