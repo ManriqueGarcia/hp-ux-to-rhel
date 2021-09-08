@@ -36,6 +36,11 @@ function migrate_user() {
 
 function migrate_groups() {
     echo "migrating groups"
+    scp -v -P 33722 ${1}:/etc/groups ${workdir}/hpux-groups
+    cp -v /etc/groups ${workdir}/rhel-groups
+    awk -F: '{ if ($3 > 500) { print $0}}' ${workdir}/hpux-groups >> ${workdir}/rhel-groups
+    cp -v /etc/groups ${workdir}/groups.bak
+    cp -v ${workdir}/rhel-groups /etc/groups
 }
 
 function migrate_home() {
