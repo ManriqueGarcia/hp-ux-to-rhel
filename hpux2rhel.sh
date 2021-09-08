@@ -1,6 +1,6 @@
 #!/bin/bash
 
-workdir=/tmp/hpux2rhel/
+workdir=/tmp/hpux2rhel
 
 
 function showhelp() {
