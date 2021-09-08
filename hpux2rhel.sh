@@ -58,7 +58,7 @@ while getopts "ugmavh" opt
 do
   case "$opt" in
     u) m_user=1;;
-    g) m_grou=1;;
+    g) m_group=1;;
     m) m_home=1;;
     a) m_all=1;;
     v) (( VERBOSE++ ));;
