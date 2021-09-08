@@ -25,11 +25,11 @@ function check_workdir () {
 
 function migrate_user() {
     echo "Migrating users"
-    scp -P 33722 ${1}:/etc/passwd ${workdir}/hpux-passwd
-    cp /etc/passwd ${workdir}/rhel-passwd
+    scp -v -P 33722 ${1}:/etc/passwd ${workdir}/hpux-passwd
+    cp -v /etc/passwd ${workdir}/rhel-passwd
     awk -F: '{ if ($3 > 500) { print $0}}' ${workdir}/hpux-passwd >> ${workdir}/rhel-passwd
-    cp /etc/passwd ${workdir}/passwd.bak
-    cp ${workdir}/rhel-passwd /etc/passwd
+    cp -v /etc/passwd ${workdir}/passwd.bak
+    cp -v ${workdir}/rhel-passwd /etc/passwd
     pwconv
 
 }
