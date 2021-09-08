@@ -18,7 +18,7 @@ function check_workdir () {
       then
         echo "Workdir exists"
       else
-        mkdir ${workdir}
+        mkdir -p ${workdir}
     fi
 
 }
@@ -67,6 +67,8 @@ if [ -z "${1}" ]
    echo "Hostname is missing"
    exit 0
 fi
+
+check_workdir
 
 if [ "${m_user}" == "1" ]
   then 
