@@ -86,7 +86,7 @@ fi
 
 if [ "${m_group}" == "1" ]
   then 
-    migrate_group "$@"
+    migrate_groups "$@"
 fi
 
 
