@@ -25,7 +25,7 @@ function check_workdir () {
 
 function migrate_user() {
     echo "Migrating users"
-    scp -P 33722 ${1}:/etc/passwd ${workdir}
+    scp -P 33722 ${1}:/etc/passwd ${workdir}/hpux-passwd
     mv ${workdir}/passwd ${workdir}/hpux-passwd
 
 }
