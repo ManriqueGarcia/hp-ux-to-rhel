@@ -25,22 +25,43 @@
     - name: create users file
       copy:
        dest: "{{ workdir }}/users.csv"
-       content: "username,shadow,uid,gid,comment,home,shell,password"     
+       content: "username,shadow,uid,gid,comment,home,shell,password\n"     
 
-    - name: create users
+    - name: create users file
       script:
          cmd: ../scripts/parsefiles.sh
 
     - name: read users
       read_csv:
         path: "{{ workdir }}/users.csv"
-        fieldnames: username,shadow,uid,gid,comment,home,shell,password 
-        delimiter: ','
+        #fieldnames: username,shadow,uid,gid,comment,home,shell,password 
+        #        delimiter: ','
       register: users
 
     - debug:
-         msg: "{{ users }}"
+        msg: "{{ user.username}} y password {{ user.password}}"
+      loop: "{{ users.list }}"
+      loop_control:
+          loop_var: user
+    
+    - name: create users
+      user:
+        name: "{{ user.username }}"
+        comment: "{{ user.comment}}"
+        uid: "{{ user.uid}}"
+        group: "{{ user.gid | default(omit)}}"
+        create_home: no
+        password: "{{ user.password | default(omit) }}"
+        shell: "{{ user.shell }}"
+      loop: "{{ users.list }}"
+      loop_control:
+             loop_var: user
 
+
+
+      #    - debug:
+      #         msg: "{{ users }}"
+      #
           #    - name: parse files
           #      shell:
           #        cmd: >

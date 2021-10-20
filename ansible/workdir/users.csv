@@ -1,3 +1,5 @@
-username,shadow,uid,gid,comment,home,shell,passwordopc_op,x,777,177,OVO default operator,/home/opc_op,/sbin/sh,*
+username,shadow,uid,gid,comment,home,shell,password
 dfrench,x,49264,20,SO_Dana_French,/home/dfrench,/sbin/sh,Msz7PqZM8LnCk
 zsgfu,x,57461,20,SO_Random_User_Name,/home/zsgfu,/sbin/sh,soK9fYtkyRKv2
+manrique,x,209,20,,/home/manrique,/sbin/sh,20OXf5MZNmKfY
+silvio,x,210,20,,/home/silvio,/sbin/sh,8MVis2XYUVLfo

@@ -20,3 +20,5 @@ owww:x:107:1::/home/owww:/sbin/sh
 dfrench:x:49264:20:SO_Dana_French:/home/dfrench:/sbin/sh
 zsgfu:x:57461:20:SO_Random_User_Name:/home/zsgfu:/sbin/sh
 test:x:108:20::/home/test:/sbin/sh
+manrique:x:209:20::/home/manrique:/sbin/sh
+silvio:x:210:20::/home/silvio:/sbin/sh

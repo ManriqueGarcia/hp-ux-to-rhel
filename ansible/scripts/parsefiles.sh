@@ -8,9 +8,9 @@ USERSFILE=${WORKDIR}/users.csv
 
 #list users
 
-for user in $( awk -F: '{ if ( $3 > 200 ) {print $1}}' $HPPASSWD);do
-   USER=$(grep ${user} $HPPASSWD|sed 's/:/,/g')
-   PASS=$(awk -F: -v u=${user} '{ if ($1 == u) {print $2}}' ${HPSHADOW})
+for user in $( awk -F: '{ if ( $3 > 200 && $3 != 777) {print $1}}' ${HPPASSWD});do
+   USER=$(grep ${user} ${HPPASSWD}|sed 's/:/,/g')
+   PASS=$(awk -F: -v username=${user} '{ if ($1 == username) {print $2}}' ${HPSHADOW})
  
    echo "${USER},${PASS}" >> ${USERSFILE}
 done
