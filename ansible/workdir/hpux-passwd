@@ -1,0 +1,22 @@
+root:x:0:3::/:/sbin/sh
+daemon:x:1:5::/:/sbin/sh
+bin:x:2:2::/usr/bin:/sbin/sh
+sys:x:3:3::/:
+adm:x:4:4::/var/adm:/sbin/sh
+uucp:x:5:3::/var/spool/uucppublic:/usr/lbin/uucp/uucico
+lp:x:9:7::/var/spool/lp:/sbin/sh
+nuucp:x:11:11::/var/spool/uucppublic:/usr/lbin/uucp/uucico
+hpdb:x:27:1:ALLBASE:/:/sbin/sh
+nobody:x:-2:-2::/:
+www:x:30:1::/:
+cimsrvr:x:101:101:WBEM Services:/var/opt/wbem:/sbin/sh
+smbnull:x:102:102:DO NOT USE OR DELETE - needed by Samba:/var/opt/samba/nologin:/bin/false
+opc_op:x:777:177:OVO default operator:/home/opc_op:/sbin/sh
+hpsmh:x:103:103:System Management Homepage:/var/opt/hpsmh:/sbin/sh
+sfmdb:x:104:20::/home/sfmdb:/sbin/sh
+sshd:x:105:104:sshd privsep:/var/empty:/bin/false
+iwww:x:106:1::/home/iwww:/sbin/sh
+owww:x:107:1::/home/owww:/sbin/sh
+dfrench:x:49264:20:SO_Dana_French:/home/dfrench:/sbin/sh
+zsgfu:x:57461:20:SO_Random_User_Name:/home/zsgfu:/sbin/sh
+test:x:108:20::/home/test:/sbin/sh
