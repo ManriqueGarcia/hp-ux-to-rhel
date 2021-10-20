@@ -1,0 +1,8 @@
+[local]
+localhost
+
+[linux]
+rhel81.bcnconsulting.com
+
+[hpux]
+siteox

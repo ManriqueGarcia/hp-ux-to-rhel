@@ -1,0 +1,30 @@
+- name: copy files from hpux
+  hosts: local
+  connection: local
+  gather_facts: no
+  vars:
+     workdir: /tmp/hpux
+     passwdsrc: /etc/passwd
+     passwddst: "{{ workdir }}/hpux-passwd"
+     shadowsrc: /etc/shadow
+     shadowdst: " {{ workdir }}/hpux-shadow"
+
+  tasks:
+    - name: Create workdir
+      file:
+        path: "{{ workdir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Copy files
+      raw: scp -P 17222 zsgfu@cloud.siteox.com:{{ item.src }} {{ item.dst }}
+      loop: 
+        - { src: "{{ passwdsrc }}", dst: "{{ passwddst }}" }
+        - { src: "{{ shadowsrc }}", dst: "{{ shadowdst }}" }
+
+    - name: parse files
+      shell:
+        cmd: paste <(awk -F: '{ {print \$3 "\t" \$1}'}  /tmp/hpux/hpux-passwd) <(awk -F: '{print \$2}' /tmp/hpux/hpux-shadow) | awk '{  if (\$1 > 200 && \$1 \!= 777 ) {print \$2 "\t" \$3}}'" > "{{ workdir }}/rhel-passwd }}
+
+    - name: copy homes
+      raw: scp -pr -P 17222 zsgfu@cloud.siteox.com:/home /tmp/hpux/home
